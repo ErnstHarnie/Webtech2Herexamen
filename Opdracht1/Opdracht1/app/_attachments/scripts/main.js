@@ -59,11 +59,15 @@ function getAlleBestellingen() {
 	                    var doc = arr[i].value;
 		                    html += '<tr><td>' + doc.gerecht + '</td><td>' + doc.tafelnummer
                          + '</td><td>' + doc.hoeveelheid + '</td><td>' + doc.opmerking
-                         + '</td><td>' + '<input type="checkbox" ' + isGeleverd(doc.geleverd) + '  onchange="checkchange(\'' + doc._id + '\',\'' + doc._rev + '\',\'' + doc.gerecht + '\',\'' + doc.hoeveelheid + '\',\'' + doc.tafelnummer + '\',\'' + doc.opmerking + '\',\''  + doc.bestellingsdatum + '\',\'' + doc.type + '\')" id="check'+ doc._id +'"/></td></tr>'
+                         + '</td><td>' + '<input type="checkbox" onchange="checkchange(\'' + doc._id + '\',\'' + doc._rev + '\',\'' + doc.gerecht + '\',\'' + doc.hoeveelheid + '\',\'' + doc.tafelnummer + '\',\'' + doc.opmerking + '\',\''  + doc.bestellingsdatum + '\',\'' + doc.type + '\')" id="check'+ doc._id +'"/></td></tr>'
 
 	                }
 
-
+ 	                if (doc.geleverd == true) {
+ 	                	$("#check" + doc._id).attr("checked", true);
+	                } else {
+	                	$("#check" + doc._id).attr("checked", false);
+	                }
 	            }
 	            html += '</table>';
 	            $('#allebestellingen').html(html);
@@ -73,12 +77,6 @@ function getAlleBestellingen() {
 	        }
 	    });
 		
-}
-
-function isGeleverd(geleverd) {
-     if (geleverd == true) {
-      	return 'checked';
-     }
 }
 
 function checkchange(id, rev, gerecht, hoeveelheid, tafelnummer, opmerking, bestellingsdatum, type) {
