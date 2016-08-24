@@ -5,24 +5,48 @@
     <link rel="stylesheet" href="style/main.css" type="text/css">
   </head>
   <body>
-  <div class="gerecht"></div>
-	</body>
-	Kies een gerecht:
+<div id="bestelling">
+	Een gerecht bestellen:
+	<p id="bericht"></p><br/><hr/>
 	
-	<select>
-		<option>Sushi</option>
-		<option>Sashami</option>
-		<option>Shabu shabu</option>
-		<option>Sukiyaki</option>
-		<option>Nikujaga</option>
-		<option>Tonkatsu</option>
+	<p>Kies een gerecht:</p>
+	<select id="gerecht">
+		<option value="sushi">Sushi</option>
+		<option value="sashami">Sashami</option>
+		<option value="shabu shabu">Shabu shabu</option>
+		<option value="sukiyaki">Sukiyaki</option>
+		<option value="nikujaga">Nikujaga</option>
+		<option value="tonkatsu">Tonkatsu</option>
 	</select>
+	<p>Hoeveelheid:</p>
+		<select id="hoeveelheid">
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		<option>6</option>
+		<option>7</option>
+		<option>8</option>
+		<option>9</option>
+		<option>10</option>
+	</select>
+	<p>Tafelnummer:</p>
+		<select id="tafelnummer">
+		<option>Tafel 1</option>
+		<option>Tafel 2</option>
+		<option>Tafel 3</option>
+		<option>Tafel 4</option>
+		<option>Tafel 5</option>
+	</select>
+	<p>Opmerking:</p>
+	<input type="text" id="opmerking"/>
 	
-	<input type="text" name="hoeveelheid"/>
-	<input type="text" name="tafelnummer"/>
-	<input type="text" name="opmerking"/>
-	
-	<input type="button" onClick="addRecipe()" value="Bestellen"/>	
+	<input type="button" onClick="opslaan()" value="Bestellen"/>	
+</div>
+
+<div id="allebestellingen">
+</div>
 <script src='scripts/jquery.js'></script>
 <script src='scripts/main.js'></script>
 </html>
