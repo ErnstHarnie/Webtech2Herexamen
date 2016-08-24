@@ -82,7 +82,6 @@ function isGeleverd(geleverd) {
 }
 
 function checkchange(id, rev, gerecht, hoeveelheid, tafelnummer, opmerking, bestellingsdatum, type) {
-	console.log('type: ' + type);
 	if (document.getElementById('check' + id).checked) {
 		updateBestelling(id, rev, gerecht, hoeveelheid, tafelnummer, opmerking, bestellingsdatum, type);
 	}
@@ -90,7 +89,6 @@ function checkchange(id, rev, gerecht, hoeveelheid, tafelnummer, opmerking, best
 
 function updateBestelling(id, rev, gerecht, hoeveelheid, tafelnummer, opmerking, bestellingsdatum, type) {
 
-	console.log(id + ' - ' + gerecht + ' - ' + hoeveelheid + ' - ' + tafelnummer + ' - ' + opmerking + ' - ' + bestellingsdatum + ' - ' + type);
     var doc = {};
 
     doc._id = id;
