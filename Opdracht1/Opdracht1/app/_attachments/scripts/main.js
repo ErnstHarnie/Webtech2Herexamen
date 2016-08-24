@@ -57,16 +57,16 @@ function getAlleBestellingen() {
 
 	                if (arr[i].id.indexOf('_design') == -1){
 	                    var doc = arr[i].value;
-	                    	console.log(doc);
 		                    html += '<tr><td>' + doc.gerecht + '</td><td>' + doc.tafelnummer
                          + '</td><td>' + doc.hoeveelheid + '</td><td>' + doc.opmerking
-                         + '</td><td>' + '<input type="checkbox" onchange="checkchange(\'' + doc._id + '\',\'' + doc._rev + '\',\'' + doc.gerecht + '\',\'' + doc.hoeveelheid + '\',\'' + doc.tafelnummer + '\',\'' + doc.opmerking + '\',\''  + doc.bestellingsdatum + '\',\'' + doc.type + '\')" id="'+ doc._id +'"/></td></tr>'
+                         + '</td><td>' + '<input type="checkbox" onchange="checkchange(\'' + doc._id + '\',\'' + doc._rev + '\',\'' + doc.gerecht + '\',\'' + doc.hoeveelheid + '\',\'' + doc.tafelnummer + '\',\'' + doc.opmerking + '\',\''  + doc.bestellingsdatum + '\',\'' + doc.type + '\')" id="check'+ doc._id +'"/></td></tr>'
 
 	                }
-	                if (doc.checked == true) {
-		                $('#' + doc._id).prop('checked', true);
+
+ 	                if (doc.geleverd == true) {
+ 	                	$("#check" + doc._id).attr("checked", true);
 	                } else {
-		                $('#' + doc._id).prop('checked', false);
+	                	$("#check" + doc._id).attr("checked", false);
 	                }
 	            }
 	            html += '</table>';
@@ -81,7 +81,7 @@ function getAlleBestellingen() {
 
 function checkchange(id, rev, gerecht, hoeveelheid, tafelnummer, opmerking, bestellingsdatum, type) {
 	console.log('type: ' + type);
-	if (document.getElementById(id).checked) {
+	if (document.getElementById('check' + id).checked) {
 		updateBestelling(id, rev, gerecht, hoeveelheid, tafelnummer, opmerking, bestellingsdatum, type);
 	}
 }
@@ -109,8 +109,8 @@ function updateBestelling(id, rev, gerecht, hoeveelheid, tafelnummer, opmerking,
         contentType : 'application/json',
         async : true,
         success : function(data){
-        	$(".allebestellingen").empty();
-            getAlleBestellingen();
+        	//$(".allebestellingen").empty();
+            //getAlleBestellingen();
         },
         error : function(XMLHttpRequest, textStatus, errorThrown){
             console.log(errorThrown);
