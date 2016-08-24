@@ -1,30 +1,30 @@
-class Recipe
+class Recipe 
 
-	@name
-	@price
-	@Ingredients = []
+	_name = '';
+	_price = '';
+	_ingredients = []
 
-	def initialize(name, price, Ingredients)
-		@name = name
-		@price = price
-		@Ingredients = Ingredients
+	def initialize(name, price, ingredients)
+		_name = name
+		_price = price
+		_ingredients = ingredients
 	end
 
 	def getName
-	 return @name
+	 return _name
 	end
 
 	def getPrice() 
-		return @price
+		return _price
 	end
 
 	def getIngredients() 
-		return @Ingredients
+		return _ingredients
 	end
 
 	def addIngredient 
-		if @Ingredients.include? params[:ingredient]
-			@Ingredients.insert(params[:ingredient])
+		if _ingredients.include? params[:ingredient]
+			_ingredients.insert(params[:ingredient])
 		end
 
 	end
